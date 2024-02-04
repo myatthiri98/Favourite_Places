@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import AllPlaces from './src/screens/AllPlaces';
 import AddPlace from './src/screens/AddPlace';
 import IconButton from './src/components/UI/IconButton';
+import { Colors } from './src/constants/colors';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -13,7 +14,13 @@ const App = () => {
     <>
       <StatusBar animated={true} barStyle={'light-content'} />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={
+          {
+            headerStyle: {backgroundColor: Colors.primary500},
+            headerTintColor: Colors.gray700,
+            contentStyle: {backgroundColor: Colors.gray700}
+          }
+        }>
           <Stack.Screen
             name="AllPlaces"
             component={AllPlaces}
